@@ -1,7 +1,6 @@
 # Password Auditor & Generator
-#### Video Demo:  https://www.youtube.com/watch?v=dRzK6U2n5DU
 #### Description:
-This project is a command-line security utility written in Python that evaluates password strength and generates secure passwords. Standard password strength meters on websites usually rely on basic regular expressions, such as checking for the presence of a single uppercase letter, number or symbol. These checks, however, fail to account for mathematical complexity, use of common language, or commonly used passwords which may have already been exposed in a data breach, which hackers utilize with dictionary attacks. This project was built to address those shortcomings.
+This project is a command-line security utility written in Python that evaluates password strength and generates secure passwords. Standard password strength meters on websites usually rely on basic regular expressions, such as checking for the presence of a single uppercase letter, number or symbol. These checks, however, fail to account for mathematical complexity, use of common language, or commonly used passwords which may have already been exposed in a data breach, which hackers utilize with dictionary attacks. This project was built to address those shortcomings. 
 
 The program operates in two modes: "--audit", which evaluates a user provided password on a scale from 0 to 100%, and "--generate", which randomly generates a password based on the required security score.
 
@@ -49,5 +48,7 @@ The user is prompted for a target password score, which is limited to a minimum 
 The project contains several files, based on the requirements of the project:
 + *project.py* - The main application file. Contains the `main()` function, the CLI logic, the audit and generate passwords functionalities.
 + *test_project.py* - The unit test. Uses pytest and monkeypatch to simulate user inputs and verify that the scoring logic is consistent and all returned values are of the correct type.
+
+This was the final project for Harvard's CS50P course.
 + *passwords.txt* - A localized database of 10,000 common passwords.
 + *requirements.txt* - A list of the required external libraries
