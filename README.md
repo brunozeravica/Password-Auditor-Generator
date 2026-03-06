@@ -48,7 +48,8 @@ The user is prompted for a target password score, which is limited to a minimum 
 The project contains several files, based on the requirements of the project:
 + *project.py* - The main application file. Contains the `main()` function, the CLI logic, the audit and generate passwords functionalities.
 + *test_project.py* - The unit test. Uses pytest and monkeypatch to simulate user inputs and verify that the scoring logic is consistent and all returned values are of the correct type.
-
-This was the final project for Harvard's CS50P course.
 + *passwords.txt* - A localized database of 10,000 common passwords.
 + *requirements.txt* - A list of the required external libraries
+
+
+This was the final project for Harvard's CS50P course.
