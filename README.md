@@ -30,7 +30,7 @@ where:
 + $$x_0 = 0.25$$ is an experimentally derived constant 
 + $$k = 5$$ is an experimentally derived constant
 
-This way passwords with extremely low uniqueness ratios are completely squashed to 0% (eg. "aabbaaabba"), but a password isn't required to have every single character completely unique in order to get a high score. 
+This way passwords with extremely low uniqueness ratios are completely squashed to 0% (eg. "aabbaaabba"), but a password isn't required to have every single character be completely unique in order to get a high score. 
 
 **Score calculation**\
 ​
