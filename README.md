@@ -14,10 +14,10 @@ Using the standard formula
 
 $$E = L \cdot log_2(R)$$
 
-where L is the length of the password and R is the number of possible characters used, the passwords entropy is calculated. This value is essentially a measure of how many random guesses it would take to correctly guess this password. The maximum value for a 32 character password, which is the maximum supported length, is just over 209 bits of entropy. This fact is used to normalize the calculated entropy to a range of 0 to 100 and then returned.
+where L is the length of the password and R is the number of possible characters used, the password's entropy is calculated. This value is essentially a measure of how many random guesses it would take to correctly guess this password. The maximum value for a 32 character password, which is the maximum supported length, is just over 209 bits of entropy. This fact is used to normalize the calculated entropy to a range of 0 to 100 and then returned.
 
 2. **Pattern matching**\
-Using the `scan_patterns` function the password is compared against a curated list of 10,000 common passwords. If the password is a substring of any of the entries, or if any of the entries are a substring within the password, the `match_count` variable is incremented by 1, and it is then returned at the end of the function.. This takes care of the most common cases, such as "password", as well as common english words.
+Using the `scan_patterns` function the password is compared against a curated list of 10,000 common passwords. If the password is a substring of any of the entries, or if any of the entries are a substring within the password, the `match_count` variable is incremented by 1, and it is then returned at the end of the function. This takes care of the most common cases, such as "password", as well as common english words.
 
 3. **Uniqueness**\
 In order to approximate the diversity of characters in a password, we calculate the ratio of unique characters to the total length of the password. This value is then passed through a shifted and scaled hyperbolic tangent function:
@@ -41,7 +41,7 @@ $$score = (entropy - (5 \cdot pattern)) \cdot uniqueness$$
 This formula, like the parameters of the uniqueness *tanh* function were derived via trial and error, until the output of the password auditor followed the *KeePassXC* password auditor score sufficiently well. If the password is extremely common, it may be highly penalized by the `scan_patterns` function, for this reason this function doesn't return the calculated score, but rather the max value between 0 and the calculated score, so as to limit the minimum output to 0.
 
 **Generate**\
-The user is prompted for a target password score, which is limited to a minimum of 25% for security. Based on the selected score, a set of characters and length is selected, with scores above or equal to 55 utilizing the entire character set (upper and lowercase letters, numbers, ascii punctuation), while the length of the password is directly proportional to the target score, with a minimum of 3 generated characters. The password is generated continually character by character using the secrets library for cryptographically secure randomness and when the required length is reached, the password is checked against the programs own password audit system. If the password meets the desired password score within 10%, the loop is broken and the password is returned, otherwise the password is scrapped and regenerated from scratch.
+The user is prompted for a target password score, which is limited to a minimum of 25% for security. Based on the selected score, a set of characters and length is selected, with scores above or equal to 55 utilizing the entire character set (upper and lowercase letters, numbers, ascii punctuation), while the length of the password is directly proportional to the target score, with a minimum of 3 generated characters. The password is generated continuously character by character using the secrets library for cryptographically secure randomness and when the required length is reached, the password is checked against the programs own password audit system. If the password meets the desired password score within 10%, the loop is broken and the password is returned, otherwise the password is scrapped and regenerated from scratch.
 
 
 **Files**\
